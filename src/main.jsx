@@ -124,7 +124,7 @@ function App() {
         <section className="hero" id="top">
           <div className="hero-copy">
             <p className="eyebrow">Professor · Writer · Speaker</p>
-            <h1>Democracy is a system for managing disagreement, not settling it.</h1>
+            <h1>Democracy is a System for managing disagreement, not settling it.</h1>
             <div className="hero-actions">
               <a className="button" href="#books">Explore the books <ArrowDown aria-hidden="true" size={16} /></a>
               <a className="text-link" href="#ideas">Read the central idea <ArrowRight aria-hidden="true" size={16} /></a>
