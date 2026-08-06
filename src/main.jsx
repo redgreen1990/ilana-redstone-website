@@ -9,6 +9,8 @@ const navItems = [
   ['About', '#about'],
 ]
 
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`
+
 function Header() {
   const [open, setOpen] = useState(false)
 
@@ -77,7 +79,7 @@ function App() {
             </nav>
           </div>
           <figure className="hero-portrait">
-            <img src="/ilana-redstone.webp" alt="Ilana Redstone" />
+            <img src={assetUrl('ilana-redstone.webp')} alt="Ilana Redstone" />
             <figcaption>Ilana Redstone, 2024</figcaption>
           </figure>
         </section>
@@ -112,8 +114,8 @@ function App() {
             <p>Two books about the stories institutions tell, the judgments people make, and what happens when complexity is mistaken for moral clarity.</p>
           </div>
           <div className="book-grid">
-            <Book index="01" date="Forthcoming · April 2027" title="Presumption of Guilt" cover="/presumption-of-guilt.jpg" tone="blue" subtitle="How Equating Inequality with Injustice Fractured American Democracy" />
-            <Book index="02" date="Published · 2024" title="The Certainty Trap" cover="/the-certainty-trap.webp" tone="burgundy" subtitle="A case for questioning certainty and judging others with greater care" />
+            <Book index="01" date="Forthcoming · April 2027" title="Presumption of Guilt" cover={assetUrl('presumption-of-guilt.jpg')} tone="blue" subtitle="How Equating Inequality with Injustice Fractured American Democracy" />
+            <Book index="02" date="Published · 2024" title="The Certainty Trap" cover={assetUrl('the-certainty-trap.webp')} tone="burgundy" subtitle="A case for questioning certainty and judging others with greater care" />
           </div>
         </section>
 
