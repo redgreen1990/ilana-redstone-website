@@ -1,129 +1,145 @@
-import { StrictMode, useEffect, useRef, useState } from 'react'
+import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ArrowDown, ArrowRight, Mail, Menu, X } from 'lucide-react'
 import './styles.css'
 
 const navItems = [
-  ['Work', '#work'],
+  ['Ideas', '#ideas'],
   ['Books', '#books'],
   ['About', '#about'],
 ]
 
 function Header() {
   const [open, setOpen] = useState(false)
+
   useEffect(() => {
-    const close = () => setOpen(false)
-    window.addEventListener('resize', close)
-    return () => window.removeEventListener('resize', close)
-  }, [])
+    document.body.classList.toggle('menu-open', open)
+    return () => document.body.classList.remove('menu-open')
+  }, [open])
 
   return (
     <header className="site-header">
-      <a className="wordmark" href="#top" aria-label="Ilana Redstone, home">IR<span>.</span></a>
+      <a className="wordmark" href="#top" aria-label="Ilana Redstone, home">
+        <span>Ilana</span> Redstone
+      </a>
       <nav className={open ? 'nav open' : 'nav'} aria-label="Main navigation">
-        {navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}
-        <a className="nav-contact" href="mailto:redstone@illinois.edu">Contact <ArrowRight size={15} /></a>
+        {navItems.map(([label, href]) => (
+          <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
+        ))}
+        <a className="button button-small" href="mailto:redstone@illinois.edu">
+          Contact <ArrowRight aria-hidden="true" size={16} />
+        </a>
       </nav>
-      <button className="menu-button" onClick={() => setOpen(!open)} aria-label="Toggle navigation" aria-expanded={open}>
-        {open ? <X /> : <Menu />}
+      <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open}>
+        {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
       </button>
     </header>
   )
 }
 
-function Entry({ onEnter }) {
-  const scene = useRef(null)
-  const move = (event) => {
-    if (!scene.current) return
-    const x = (event.clientX / window.innerWidth - .5) * 2
-    const y = (event.clientY / window.innerHeight - .5) * 2
-    scene.current.style.setProperty('--mx', x)
-    scene.current.style.setProperty('--my', y)
-  }
-
+function Book({ index, title, subtitle, date, cover, tone }) {
   return (
-    <section className="entry" ref={scene} onPointerMove={move} aria-label="Enter the website">
-      <div className="entry-top"><span>Ilana Redstone</span><span>Professor · Writer · Speaker</span></div>
-      <div className="entry-center">
-        <p className="entry-thesis"><span>Democracy is a way</span><span>of managing disagreement,</span><span>not a mechanism</span><span>for settling it.</span></p>
-        <button onClick={onEnter}>Explore <ArrowRight size={17} /></button>
+    <article className={`book book-${tone}`}>
+      <div className="book-header">
+        <span>{index}</span>
+        <span>{date}</span>
       </div>
-    </section>
-  )
-}
-
-function BookCard({ number, title, year, subtitle, light, cover }) {
-  return (
-    <article className={light ? 'book-card light' : 'book-card'}>
-      <div className="book-meta"><span>{number}</span><span>{year}</span></div>
-      {cover ? <img className="book-cover" src={cover} alt={`Cover of ${title}`} /> : <div className="future-cover"><span>Forthcoming</span><strong>{title}</strong><small>Ilana Redstone</small></div>}
-      <div className="book-details"><h3>{title}</h3><p>{subtitle}</p></div>
+      <div className="book-visual">
+        <img src={cover} alt={`Cover of ${title}`} />
+      </div>
+      <div className="book-copy">
+        <h3>{title}</h3>
+        <p>{subtitle}</p>
+      </div>
     </article>
   )
 }
 
 function App() {
-  const [entered, setEntered] = useState(false)
   return (
-    <main id="top" className={entered ? 'entered' : 'not-entered'}>
-      {!entered && <Entry onEnter={() => setEntered(true)} />}
+    <>
+      <a className="skip-link" href="#content">Skip to content</a>
       <Header />
-
-      <section className="hero">
-        <h1 className="hero-message reveal delay-1">The distinction matters for public trust, our political culture, and our <em>social and institutional life.</em></h1>
-        <div className="hero-bottom reveal delay-2">
-          <a className="circle-link" href="#work" aria-label="Explore the work"><ArrowDown /></a>
-        </div>
-      </section>
-
-      <section className="statement" id="work">
-        <p className="eyebrow">The central question</p>
-        <div className="statement-grid">
-          <h2>The cost of <span>certainty.</span></h2>
-          <div className="statement-copy">
-            <p className="statement-intro">I examine how certainty shapes our institutions—and what democratic life asks of us instead.</p>
-            <p>American institutions have increasingly forgotten the difference between managing disagreement and settling it. Courts, schools, corporations, and universities often treat contested moral and causal claims as already decided.</p>
-            <p>My work examines how that shift happened, what it has cost, and what it would take to recover.</p>
+      <main id="content">
+        <section className="hero" id="top">
+          <div className="hero-copy">
+            <p className="eyebrow">Professor · Writer · Speaker</p>
+            <h1>Disagreement is not a failure of democracy.</h1>
+            <p className="hero-intro">Ilana Redstone examines how certainty shapes institutions, public trust, and the capacity to live with people who see the world differently.</p>
+            <div className="hero-actions">
+              <a className="button" href="#books">Explore the books <ArrowDown aria-hidden="true" size={16} /></a>
+              <a className="text-link" href="#ideas">Read the central idea <ArrowRight aria-hidden="true" size={16} /></a>
+            </div>
           </div>
-        </div>
-      </section>
+          <figure className="hero-portrait">
+            <img src="/ilana-redstone.webp" alt="Ilana Redstone" />
+            <figcaption>Ilana Redstone, professor at the University of Illinois Urbana–Champaign</figcaption>
+          </figure>
+        </section>
 
-      <section className="books" id="books">
-        <div className="section-heading">
-          <h2><span>Books are</span> long-form arguments<br />for uncertain times.</h2>
-        </div>
-        <div className="book-grid">
-          <BookCard number="01" year="April 7, 2027" title="Presumption of Guilt" cover="/presumption-of-guilt.jpg" subtitle="How Equating Inequality with Injustice Fractured American Democracy" />
-          <BookCard light number="02" year="2024" title="The Certainty Trap" cover="/the-certainty-trap.webp" subtitle="Why We Need to Question Ourselves More—and How We Can Judge Others Less" />
-        </div>
-      </section>
-
-      <section className="about" id="about">
-        <div className="portrait-wrap">
-          <img src="/ilana-redstone.webp" alt="Portrait of Ilana Redstone" />
-          <p>Photo, 2024</p>
-        </div>
-        <div className="about-copy">
-          <p className="eyebrow">About me</p>
-          <h2>Social science,<br />law &amp; democratic theory.</h2>
-          <p>I’m a professor at the University of Illinois Urbana-Champaign. I write, speak, and occasionally consult on questions at the intersection of institutions, culture, and public life.</p>
-          <div className="about-links">
-            <a href="mailto:redstone@illinois.edu">Speaking inquiries <ArrowRight size={17} /></a>
+        <section className="ideas" id="ideas">
+          <div className="section-label">
+            <span>01</span>
+            <p className="eyebrow">The central idea</p>
           </div>
-        </div>
-      </section>
+          <div className="ideas-content">
+            <h2>Democracy manages disagreement. It does not settle it.</h2>
+            <div className="ideas-copy">
+              <p className="lead">The distinction matters for public trust, political culture, and institutional life.</p>
+              <p>Courts, schools, corporations, and universities increasingly treat contested moral and causal claims as already decided. When institutions confuse authority with certainty, disagreement begins to look like ignorance—or guilt.</p>
+              <p>Her work asks how that shift happened, what it has cost, and what it would take to recover a more durable democratic culture.</p>
+            </div>
+          </div>
+          <div className="principles" aria-label="Themes in Ilana Redstone's work">
+            <div><span>01</span><h3>Question certainty</h3><p>Separate confidence in a claim from the strength of the evidence behind it.</p></div>
+            <div><span>02</span><h3>Protect disagreement</h3><p>Treat dissent as a feature of pluralistic life, not evidence of moral failure.</p></div>
+            <div><span>03</span><h3>Rebuild trust</h3><p>Make institutional judgment more transparent, modest, and credible.</p></div>
+          </div>
+        </section>
 
-      <section className="contact">
-        <p className="eyebrow">Get in touch</p>
-        <a href="mailto:redstone@illinois.edu"><Mail size={30} /> redstone@illinois.edu</a>
-      </section>
+        <section className="books-section" id="books">
+          <div className="section-label dark-label">
+            <span>02</span>
+            <p className="eyebrow">Selected books</p>
+          </div>
+          <div className="books-heading">
+            <h2>Long-form arguments for uncertain times.</h2>
+            <p>Two books about the stories institutions tell, the judgments people make, and what happens when complexity is mistaken for moral clarity.</p>
+          </div>
+          <div className="book-grid">
+            <Book index="01" date="Forthcoming · April 2027" title="Presumption of Guilt" cover="/presumption-of-guilt.jpg" tone="blue" subtitle="How Equating Inequality with Injustice Fractured American Democracy" />
+            <Book index="02" date="Published · 2024" title="The Certainty Trap" cover="/the-certainty-trap.webp" tone="burgundy" subtitle="A case for questioning certainty and judging others with greater care" />
+          </div>
+        </section>
+
+        <section className="about" id="about">
+          <div className="section-label">
+            <span>03</span>
+            <p className="eyebrow">About</p>
+          </div>
+          <div className="about-content">
+            <h2>Working across social science, law, and democratic theory.</h2>
+            <div className="about-copy">
+              <p className="lead">Ilana Redstone is a professor, writer, and speaker focused on institutions, culture, and public life.</p>
+              <p>She is a professor at the University of Illinois Urbana–Champaign. Her work brings sociological research into conversation with questions about judgment, inequality, and the conditions required for democratic trust.</p>
+              <a className="text-link" href="mailto:redstone@illinois.edu">Invite Ilana to speak <ArrowRight aria-hidden="true" size={16} /></a>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact" aria-labelledby="contact-heading">
+          <p className="eyebrow">Speaking · Media · Academic inquiries</p>
+          <h2 id="contact-heading">Continue the conversation.</h2>
+          <a href="mailto:redstone@illinois.edu"><Mail aria-hidden="true" size={24} />redstone@illinois.edu</a>
+        </section>
+      </main>
 
       <footer>
-        <a className="wordmark inverse" href="#top">IR<span>.</span></a>
-        <p>Ilana Redstone</p>
-        <p>© {new Date().getFullYear()} All rights reserved.</p>
+        <a className="wordmark footer-wordmark" href="#top"><span>Ilana</span> Redstone</a>
+        <p>Professor · Writer · Speaker</p>
+        <p>© {new Date().getFullYear()} Ilana Redstone</p>
       </footer>
-    </main>
+    </>
   )
 }
 
