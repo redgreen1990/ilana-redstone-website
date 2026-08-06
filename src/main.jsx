@@ -1,6 +1,6 @@
 import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ArrowDown, ArrowRight, Mail, Menu, X } from 'lucide-react'
+import { ArrowDown, ArrowRight, ExternalLink, Mail, Menu, X } from 'lucide-react'
 import './styles.css'
 
 const navItems = [
@@ -65,15 +65,20 @@ function App() {
           <div className="hero-copy">
             <p className="eyebrow">Professor · Writer · Speaker</p>
             <h1>Disagreement is not a failure of democracy.</h1>
-            <p className="hero-intro">Ilana Redstone examines how certainty shapes institutions, public trust, and the capacity to live with people who see the world differently.</p>
+            <p className="hero-intro">I examine how certainty shapes institutions, public trust, and our capacity to live with people who see the world differently.</p>
             <div className="hero-actions">
               <a className="button" href="#books">Explore the books <ArrowDown aria-hidden="true" size={16} /></a>
               <a className="text-link" href="#ideas">Read the central idea <ArrowRight aria-hidden="true" size={16} /></a>
             </div>
+            <nav className="profile-links" aria-label="More from me">
+              <a href="https://static1.squarespace.com/static/69f922f47fc8575320726a98/t/6a4bba8bb42e515132552948/1783347851525/Redstone_CV_July_2026.pdf" target="_blank" rel="noreferrer">Curriculum vitae <ExternalLink aria-hidden="true" size={14} /></a>
+              <a href="https://thecertaintytrap.substack.com/" target="_blank" rel="noreferrer">Substack <ExternalLink aria-hidden="true" size={14} /></a>
+              <a href="https://linktr.ee/ilanaredstone" target="_blank" rel="noreferrer">Linktree <ExternalLink aria-hidden="true" size={14} /></a>
+            </nav>
           </div>
           <figure className="hero-portrait">
             <img src="/ilana-redstone.webp" alt="Ilana Redstone" />
-            <figcaption>Ilana Redstone, professor at the University of Illinois Urbana–Champaign</figcaption>
+            <figcaption>Ilana Redstone, 2024</figcaption>
           </figure>
         </section>
 
@@ -87,10 +92,10 @@ function App() {
             <div className="ideas-copy">
               <p className="lead">The distinction matters for public trust, political culture, and institutional life.</p>
               <p>Courts, schools, corporations, and universities increasingly treat contested moral and causal claims as already decided. When institutions confuse authority with certainty, disagreement begins to look like ignorance—or guilt.</p>
-              <p>Her work asks how that shift happened, what it has cost, and what it would take to recover a more durable democratic culture.</p>
+              <p>My work asks how that shift happened, what it has cost, and what it would take to recover a more durable democratic culture.</p>
             </div>
           </div>
-          <div className="principles" aria-label="Themes in Ilana Redstone's work">
+          <div className="principles" aria-label="Themes in my work">
             <div><span>01</span><h3>Question certainty</h3><p>Separate confidence in a claim from the strength of the evidence behind it.</p></div>
             <div><span>02</span><h3>Protect disagreement</h3><p>Treat dissent as a feature of pluralistic life, not evidence of moral failure.</p></div>
             <div><span>03</span><h3>Rebuild trust</h3><p>Make institutional judgment more transparent, modest, and credible.</p></div>
@@ -120,9 +125,9 @@ function App() {
           <div className="about-content">
             <h2>Working across social science, law, and democratic theory.</h2>
             <div className="about-copy">
-              <p className="lead">Ilana Redstone is a professor, writer, and speaker focused on institutions, culture, and public life.</p>
-              <p>She is a professor at the University of Illinois Urbana–Champaign. Her work brings sociological research into conversation with questions about judgment, inequality, and the conditions required for democratic trust.</p>
-              <a className="text-link" href="mailto:redstone@illinois.edu">Invite Ilana to speak <ArrowRight aria-hidden="true" size={16} /></a>
+              <p className="lead">I’m a professor, writer, and speaker focused on institutions, culture, and public life.</p>
+              <p>I’m a professor at the University of Illinois Urbana–Champaign. My work brings sociological research into conversation with questions about judgment, inequality, and the conditions required for democratic trust.</p>
+              <a className="text-link" href="mailto:redstone@illinois.edu">Invite me to speak <ArrowRight aria-hidden="true" size={16} /></a>
             </div>
           </div>
         </section>

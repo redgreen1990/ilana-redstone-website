@@ -50,6 +50,11 @@ img { max-width: 100%; }
 .hero h1 { max-width: 880px; margin: 40px 0 32px; font: 400 clamp(64px, 7.4vw, 112px)/0.94 'Newsreader', serif; letter-spacing: -0.055em; }
 .hero-intro { max-width: 640px; margin: 0; color: var(--muted); font: 400 clamp(18px, 1.5vw, 22px)/1.55 'Libre Franklin', sans-serif; }
 .hero-actions { margin-top: 48px; display: flex; align-items: center; gap: 32px; }
+.profile-links { margin-top: 40px; padding-top: 24px; display: flex; flex-wrap: wrap; gap: 24px; border-top: 1px solid var(--line); }
+.profile-links a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; line-height: 16px; font-weight: 500; }
+.profile-links svg { transition: transform 200ms ease; }
+.profile-links a:hover, .profile-links a:focus-visible { color: var(--ink); }
+.profile-links a:hover svg, .profile-links a:focus-visible svg { transform: translate(2px, -2px); }
 .hero-portrait { margin: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; }
 .hero-portrait img { width: 100%; aspect-ratio: 4/5; display: block; object-fit: cover; }
 .hero-portrait figcaption { max-width: 360px; margin-top: 16px; color: var(--muted); font-size: 11px; line-height: 16px; }
