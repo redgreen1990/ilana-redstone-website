@@ -66,7 +66,7 @@ function App() {
         <section className="hero" id="top">
           <div className="hero-copy">
             <p className="eyebrow">Professor · Writer · Speaker</p>
-            <h1>Disagreement is not a failure of democracy.</h1>
+            <h1>Disagreement is part of democracy.</h1>
             <p className="hero-intro">I examine how certainty shapes institutions, public trust, and our capacity to live with people who see the world differently.</p>
             <div className="hero-actions">
               <a className="button" href="#books">Explore the books <ArrowDown aria-hidden="true" size={16} /></a>
