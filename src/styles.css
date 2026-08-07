@@ -145,12 +145,12 @@ footer p:last-child { text-align: right; color: #9da39e; }
 @media (max-width: 800px) {
   :root { --section: 96px; --gutter: clamp(20px, 6vw, 40px); }
   html { scroll-padding-top: 72px; }
-  .site-header { height: 72px; padding: 0 var(--gutter); border-bottom-color: rgba(22, 26, 23, .16); background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .site-header { left: 0; max-width: none; height: 72px; padding: 0 var(--gutter); border-bottom-color: rgba(22, 26, 23, .16); background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; transform: none; }
   .site-header .wordmark { position: relative; z-index: 2; }
   .menu-button { width: 44px; height: 44px; margin-right: -10px; padding: 10px; display: grid; position: relative; z-index: 2; place-items: center; }
   .menu-button svg { width: 22px; height: 22px; }
-  .nav { position: fixed; inset: 0; padding: 104px var(--gutter) 40px; background: var(--paper); flex-direction: column; align-items: stretch; gap: 0; transform: translateY(-104%); transition: transform 240ms ease; }
-  .nav.open { transform: translateY(0); }
+  .nav { position: fixed; inset: 0; padding: 104px var(--gutter) 40px; background: var(--paper); flex-direction: column; align-items: stretch; gap: 0; visibility: hidden; opacity: 0; pointer-events: none; transform: translateY(-24px); transition: opacity 180ms ease, transform 240ms ease, visibility 0s linear 240ms; }
+  .nav.open { visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0); transition-delay: 0s; }
   .nav > a:not(.button) { padding: 16px 0; border-bottom: 1px solid var(--line); font: 400 40px/1.2 'Newsreader', serif; }
   .nav > a:not(.button)::after { display: none; }
   .nav .button { margin-top: 32px; }
