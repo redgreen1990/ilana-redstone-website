@@ -95,21 +95,26 @@ function Cascade() {
         <div className="cascade-equation" aria-label="Inequality is taken as proof of discrimination, and discrimination is understood as an expression of racism">
           <span>Inequality</span><b aria-hidden="true">→ <em>taken as proof of</em> →</b><span>Discrimination</span><b aria-hidden="true">→ <em>understood as an expression of</em> →</b><span>Racism</span>
         </div>
-        <h3 className="cascade-map-title">Follow the logic</h3>
-        <div className="cascade-list">
-          {cascadeGroups.map(([group, entries], groupIndex) => (
-            <section className="cascade-group" key={group} aria-labelledby={`cascade-group-${groupIndex}`}>
-              <h3 id={`cascade-group-${groupIndex}`}>{group}</h3>
-              {entries.map(([term, explanation, charge]) => (
-                <details key={term}>
-                  <summary>{term}</summary>
-                  <div className="cascade-entry-body"><p>{explanation}</p><p className="cascade-charge">“{charge}”</p></div>
-                </details>
+        <details className="cascade-explorer">
+          <summary><span>Explore the concept map</span><small>15 terms</small></summary>
+          <div className="cascade-explorer-content">
+            <h3 className="cascade-map-title">Follow the logic</h3>
+            <div className="cascade-list">
+              {cascadeGroups.map(([group, entries], groupIndex) => (
+                <section className="cascade-group" key={group} aria-labelledby={`cascade-group-${groupIndex}`}>
+                  <h3 id={`cascade-group-${groupIndex}`}>{group}</h3>
+                  {entries.map(([term, explanation, charge]) => (
+                    <details key={term}>
+                      <summary>{term}</summary>
+                      <div className="cascade-entry-body"><p>{explanation}</p><p className="cascade-charge">“{charge}”</p></div>
+                    </details>
+                  ))}
+                </section>
               ))}
-            </section>
-          ))}
-        </div>
-        <footer className="cascade-note"><p>The quotations in the entries above are representative formulations only.</p><p>Drawn from <a href="#books"><em>Presumption of Guilt</em></a> (Pitchstone, 2027), Chapter 9.</p></footer>
+            </div>
+            <footer className="cascade-note"><p>The quotations in the entries above are representative formulations only.</p><p>Drawn from <a href="#books"><em>Presumption of Guilt</em></a> (Pitchstone, 2027), Chapter 9.</p></footer>
+          </div>
+        </details>
       </div>
     </section>
   )

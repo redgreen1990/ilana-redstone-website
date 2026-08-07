@@ -12,7 +12,7 @@
   --radius: 0px;
   --gutter: clamp(24px, 5vw, 80px);
   --container: 1440px;
-  --section: clamp(96px, 10vw, 160px);
+  --section: clamp(80px, 8vw, 128px);
   color: var(--ink);
   background: var(--paper);
   font-family: 'Libre Franklin', sans-serif;
@@ -46,7 +46,7 @@ img { max-width: 100%; }
 .text-link:hover svg, .text-link:focus-visible svg { transform: translateX(4px); }
 .eyebrow { margin: 0; font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 
-.hero { min-height: 880px; max-width: var(--container); margin: 0 auto; padding: 160px var(--gutter) 80px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr); gap: clamp(48px, 8vw, 128px); align-items: end; }
+.hero { min-height: 820px; max-width: var(--container); margin: 0 auto; padding: 144px var(--gutter) 72px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr); gap: clamp(48px, 8vw, 128px); align-items: end; }
 .hero-copy { padding-bottom: 48px; }
 .hero h1 { max-width: 920px; margin: 40px 0 32px; font: 500 clamp(46px, 5vw, 74px)/1.07 'Libre Franklin', sans-serif; letter-spacing: -.025em; }
 .hero-actions { margin-top: 48px; display: flex; align-items: center; gap: 32px; }
@@ -66,7 +66,7 @@ img { max-width: 100%; }
 .ideas { background: var(--ink); color: var(--paper); }
 .ideas .section-label { border-color: var(--line-light); }
 .ideas .section-label > span { color: #9da39e; }
-.ideas-content { padding: 80px 0 96px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr); gap: clamp(64px, 10vw, 160px); }
+.ideas-content { padding: 64px 0 72px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr); gap: clamp(64px, 10vw, 160px); }
 .ideas h2, .books-heading h2 { margin: 0; font: 400 clamp(48px, 5.5vw, 80px)/1 'Newsreader', serif; letter-spacing: -0.045em; }
 .ideas h2 { font-size: clamp(34px, 3.5vw, 50px); line-height: 1.18; letter-spacing: -.015em; }
 .ideas-copy { padding-top: 8px; }
@@ -81,7 +81,7 @@ img { max-width: 100%; }
 .principles p { max-width: 320px; margin: 0; color: #bdc2be; font-size: 14px; line-height: 1.65; }
 
 .books-section { padding: var(--section) max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); }
-.books-heading { padding: 80px 0; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr); gap: clamp(64px, 10vw, 160px); align-items: end; }
+.books-heading { padding: 64px 0; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr); gap: clamp(64px, 10vw, 160px); align-items: end; }
 .books-heading p { max-width: 480px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
 .book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .book { min-height: 760px; padding: 32px; display: grid; grid-template-rows: auto 1fr auto; color: var(--paper); }
@@ -103,6 +103,13 @@ img { max-width: 100%; }
 .cascade-equation > span { min-height: 64px; padding: 12px; display: grid; place-items: center; background: var(--ink); color: var(--paper); font-size: 13px; font-weight: 600; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
 .cascade-equation > b { color: var(--muted); font: 600 10px/1.4 'Libre Franklin', sans-serif; letter-spacing: .06em; text-align: center; text-transform: uppercase; white-space: nowrap; }
 .cascade-equation > b em { font-style: normal; }
+.cascade-explorer { grid-column: 1 / -1; margin-top: 40px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.cascade-explorer > summary { min-height: 72px; padding: 0 4px; display: flex; align-items: center; gap: 24px; cursor: pointer; list-style: none; font-size: 14px; font-weight: 600; }
+.cascade-explorer > summary::-webkit-details-marker { display: none; }
+.cascade-explorer > summary small { margin-left: auto; color: var(--muted); font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.cascade-explorer > summary::after { content: '+'; width: 20px; font-size: 22px; line-height: 1; font-weight: 400; text-align: center; }
+.cascade-explorer[open] > summary::after { content: '−'; }
+.cascade-explorer-content { padding-bottom: 40px; }
 .cascade-map-title { grid-column: 1 / -1; margin: 56px 0 0; font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .cascade-list { position: relative; grid-column: 1 / -1; width: 100%; margin: 20px 0 0; padding-top: 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
 .cascade-list::before { content: ''; position: absolute; top: 8px; right: 12.5%; left: 12.5%; height: 1px; background: var(--line); }
@@ -144,7 +151,7 @@ footer p:last-child { text-align: right; color: #9da39e; }
 .footer-wordmark span { color: var(--rose); }
 
 @media (max-width: 800px) {
-  :root { --section: 96px; --gutter: clamp(20px, 6vw, 40px); }
+  :root { --section: 72px; --gutter: clamp(20px, 6vw, 40px); }
   html { scroll-padding-top: 72px; }
   .site-header { left: 0; max-width: none; height: 72px; padding: 0 var(--gutter); border-bottom-color: rgba(22, 26, 23, .16); background: var(--paper); backdrop-filter: none; -webkit-backdrop-filter: none; transform: none; }
   .site-header .wordmark { position: relative; z-index: 2; }
@@ -187,7 +194,10 @@ footer p:last-child { text-align: right; color: #9da39e; }
   .cascade-equation { margin-top: 36px; padding: 20px 16px 18px; gap: 8px; }
   .cascade-equation > span { min-height: 52px; padding: 8px 4px; font-size: 9px; letter-spacing: .02em; }
   .cascade-equation > b { font-size: 7px; letter-spacing: 0; }
-  .cascade-map-title { margin-top: 44px; }
+  .cascade-explorer { margin-top: 28px; }
+  .cascade-explorer > summary { min-height: 64px; }
+  .cascade-explorer-content { padding-bottom: 28px; }
+  .cascade-map-title { margin-top: 36px; }
   .cascade-list { margin-top: 36px; padding: 0 0 0 42px; display: block; }
   .cascade-list::before { top: 5px; right: auto; bottom: 0; left: 14px; width: 1px; height: auto; }
   .cascade-group { margin-top: 32px; padding-left: 0; }
