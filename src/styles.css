@@ -191,9 +191,9 @@ footer p:last-child { text-align: right; color: #9da39e; }
   .book-visual img { width: min(56%, 264px); max-height: 360px; }
   .book-copy { grid-template-columns: 1fr; gap: 16px; }
   .cascade-shell { display: block; }
-  .cascade-equation { margin-top: 36px; padding: 20px 16px 18px; gap: 8px; }
-  .cascade-equation > span { min-height: 52px; padding: 8px 4px; font-size: 9px; letter-spacing: .02em; }
-  .cascade-equation > b { font-size: 7px; letter-spacing: 0; }
+  .cascade-equation { margin-top: 36px; padding: 20px; grid-template-columns: 1fr; gap: 10px; }
+  .cascade-equation > span { width: 100%; min-height: 52px; padding: 10px; font-size: 10px; letter-spacing: .04em; }
+  .cascade-equation > b { padding: 2px 0; font-size: 8px; line-height: 1.4; letter-spacing: .04em; white-space: normal; }
   .cascade-explorer { margin-top: 28px; }
   .cascade-explorer > summary { min-height: 64px; }
   .cascade-explorer-content { padding-bottom: 28px; }
