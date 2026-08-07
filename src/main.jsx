@@ -129,11 +129,14 @@ function App() {
               <a className="button" href="#books">Explore the books <ArrowDown aria-hidden="true" size={16} /></a>
               <a className="text-link" href="#ideas">Read the central idea <ArrowRight aria-hidden="true" size={16} /></a>
             </div>
-            <nav className="profile-links" aria-label="More from me">
-              <a href="https://drive.google.com/file/d/1FGeHcUW3pKy-ToXiIJd73MARh_xxfF7t/view?usp=sharing" target="_blank" rel="noreferrer">Curriculum vitae <ExternalLink aria-hidden="true" size={14} /></a>
-              <a href="https://thecertaintytrap.substack.com/" target="_blank" rel="noreferrer">Substack <ExternalLink aria-hidden="true" size={14} /></a>
-              <a href="https://linktr.ee/ilanaredstone" target="_blank" rel="noreferrer">Linktree <ExternalLink aria-hidden="true" size={14} /></a>
-            </nav>
+            <div className="profile-block">
+              <p className="profile-label">Elsewhere</p>
+              <nav className="profile-links" aria-label="More from me">
+                <a href="https://drive.google.com/file/d/1FGeHcUW3pKy-ToXiIJd73MARh_xxfF7t/view?usp=sharing" target="_blank" rel="noreferrer"><span className="profile-long-label">Curriculum vitae</span><span className="profile-short-label">CV</span> <ExternalLink aria-hidden="true" size={14} /></a>
+                <a href="https://thecertaintytrap.substack.com/" target="_blank" rel="noreferrer">Substack <ExternalLink aria-hidden="true" size={14} /></a>
+                <a href="https://linktr.ee/ilanaredstone" target="_blank" rel="noreferrer">Linktree <ExternalLink aria-hidden="true" size={14} /></a>
+              </nav>
+            </div>
           </div>
           <figure className="hero-portrait">
             <img src="https://drive.google.com/thumbnail?id=1HSHsivEtqBlPde7NsKyTcEL78LqGY3mr&amp;sz=w1600" alt="Ilana Redstone" />
