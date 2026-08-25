@@ -3,14 +3,15 @@ import { createRoot } from 'react-dom/client'
 import { ArrowDown, ArrowRight, ExternalLink, Mail, Menu, X } from 'lucide-react'
 import './styles.css'
 
+const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`
+
 const navItems = [
   ['About', '#about'],
   ['Central idea', '#ideas'],
   ['Books', '#books'],
   ['Book preview', '#preview'],
+  ['Interactive map', assetUrl('contested-premise-map/')],
 ]
-
-const assetUrl = (path) => `${import.meta.env.BASE_URL}${path}`
 
 function Header() {
   const [open, setOpen] = useState(false)
