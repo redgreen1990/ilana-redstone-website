@@ -89,6 +89,19 @@
     text-transform: uppercase;
   }
 
+  .site-home-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--line);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .site-home-link:hover {
+    text-decoration: underline;
+  }
+
   .landing-copy h1 {
     max-width: 650px;
     margin: 0 0 22px;
@@ -299,6 +312,9 @@
   }
 
   .control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 7px 12px;
     border-radius: 999px;
     border: 1px solid var(--border);
@@ -306,6 +322,7 @@
     color: var(--ink);
     font-size: 12px;
     cursor: pointer;
+    text-decoration: none;
   }
 
   .control.active {
@@ -316,6 +333,7 @@
   }
 
   .control:focus-visible,
+  .site-home-link:focus-visible,
   .explore-mode:focus-visible,
   .concept-option:focus-visible,
   .node:focus-visible,
@@ -2728,6 +2746,8 @@
     </figure>
 
     <div class="landing-copy">
+      <a class="site-home-link" href="https://ilanaredstone.com/">← IlanaRedstone.com home</a>
+      <br>
       <div class="landing-kicker">An interactive companion to the book</div>
       <h1 id="landingTitle">How did disagreement come to be treated as <span>ignorance or bigotry?</span></h1>
       <p>
@@ -2764,6 +2784,9 @@
   </div>
 
   <div class="controls">
+    <a class="control" href="https://ilanaredstone.com/">
+      IlanaRedstone.com home
+    </a>
     <button id="homeButton" class="control">
       Back to start page
     </button>
