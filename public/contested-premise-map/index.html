@@ -2728,7 +2728,7 @@
 
 <body>
 
-<section id="landing" class="landing-screen" aria-labelledby="landingTitle">
+<section id="landing" class="landing-screen" aria-labelledby="landingTitle" hidden>
   <div class="landing-shell">
     <figure class="landing-cover">
       <a
@@ -2788,7 +2788,7 @@
     <a class="control" href="https://ilanaredstone.com/">
       IlanaRedstone.com home
     </a>
-    <button id="homeButton" class="control">
+    <button id="homeButton" class="control" hidden>
       Back to start page
     </button>
 
@@ -2845,6 +2845,10 @@
  *   = hidden reasoning. Appears only when needed to connect selections.
  *
  ***********************************************************************/
+
+// Keep the original landing page available in this file without showing it
+// in the current experience. Set this to true to restore it.
+const SHOW_LANDING_PAGE = false;
 
 const NODES = [
 
@@ -8855,6 +8859,13 @@ window.addEventListener("resize", () => {
 createNodes();
 buildConceptBanks();
 buildRemedies();
+
+if (SHOW_LANDING_PAGE) {
+  landing.hidden = false;
+  document.getElementById("homeButton").hidden = false;
+} else {
+  enterTool();
+}
 
 </script>
 

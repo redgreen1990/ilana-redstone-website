@@ -10,7 +10,6 @@ const navItems = [
   ['Central idea', '#ideas'],
   ['Books', '#books'],
   ['Book preview', '#preview'],
-  ['Interactive map', assetUrl('contested-premise-map/')],
 ]
 
 function Header() {
@@ -87,6 +86,7 @@ const cascadeGroups = [
   ]],
 ]
 
+// Retained for possible future use; the live page now renders PremiseMapCallout.
 function Cascade() {
   return (
     <section className="cascade-section" id="preview" aria-labelledby="cascade-heading">
@@ -116,6 +116,25 @@ function Cascade() {
             <footer className="cascade-note"><p>The quotations in the entries above are representative formulations only.</p><p>Drawn from <a href="#books"><em>Presumption of Guilt</em></a> (Pitchstone, 2027), Chapter 9.</p></footer>
           </div>
         </details>
+      </div>
+    </section>
+  )
+}
+
+function PremiseMapCallout() {
+  return (
+    <section className="map-callout" id="preview" aria-labelledby="map-callout-heading">
+      <div className="map-callout-shell">
+        <div>
+          <p className="eyebrow">Interactive companion · <em>Presumption of Guilt</em></p>
+          <h2 id="map-callout-heading">See how apparently unrelated controversies share a common premise.</h2>
+        </div>
+        <div className="map-callout-action">
+          <p>Choose an issue and trace the hidden reasoning that connects it to the book’s central argument.</p>
+          <a className="button" href={assetUrl('contested-premise-map/')}>
+            Explore the interactive map <ArrowRight aria-hidden="true" size={16} />
+          </a>
+        </div>
       </div>
     </section>
   )
@@ -195,7 +214,7 @@ function App() {
           </div>
         </section>
 
-        <Cascade />
+        <PremiseMapCallout />
 
         <section className="contact" aria-labelledby="contact-heading">
           <p className="eyebrow">Speaking · Media · Academic inquiries</p>
