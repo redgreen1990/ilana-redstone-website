@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Suppose — Reasoning practice</title>
+<title>Hold That Thought — Reasoning practice</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
 <style>
@@ -459,7 +459,7 @@
     cursor: pointer;
   }
 
-  /* Suppose app home */
+  /* Hold That Thought app home */
   .landing-screen.game-home { padding: 0; background: #edf1ef; }
   .game-home .landing-shell { max-width: none; margin: 0; }
 
@@ -4035,6 +4035,18 @@
   .weight-controls button { width: 38px; height: 38px; border: 1px solid var(--border); border-radius: 50%; background: #fff; color: var(--ink); font-size: 20px; cursor: pointer; }
   .weight-controls output { min-width: 20px; font-weight: 850; text-align: center; }
   .tokens-left { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+  .tradeoff-context { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+  .tradeoff-context > div { padding: 18px; border: 1px solid var(--border); border-radius: 14px; background: #fff; line-height: 1.4; }
+  .tradeoff-context strong { display: block; margin-bottom: 6px; color: var(--rule); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
+  .tradeoff-balance { margin: 22px 0; padding: 22px; border-radius: 16px; background: #edf4f7; }
+  .tradeoff-labels { display: flex; justify-content: space-between; gap: 24px; font-weight: 800; line-height: 1.3; }
+  .tradeoff-labels span { max-width: 44%; }
+  .tradeoff-labels span:last-child { text-align: right; }
+  .balance-options { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 24px 0 10px; }
+  .balance-options::before { content: ""; position: absolute; top: 19px; right: 7%; left: 7%; height: 3px; background: #aac1cc; }
+  .balance-option { position: relative; z-index: 1; display: grid; place-items: center; width: 40px; height: 40px; margin: 0 auto; border: 3px solid #8ca8b6; border-radius: 50%; background: #fff; color: transparent; cursor: pointer; }
+  .balance-option:hover, .balance-option.active { border-color: var(--rule); background: var(--rule); }
+  .balance-caption { margin: 12px 0 0; color: var(--muted); font-size: 13px; font-weight: 750; text-align: center; }
   .held-together { display: grid; gap: 10px; margin: 18px 0 24px; text-align: center; }
   .held-together div:not(.bridge-operator) { padding: 17px; border: 1px solid var(--border); border-radius: 12px; background: #fff; font-weight: 750; }
   .no-reflection { margin: 0 0 18px; color: var(--muted); font-size: 17px; line-height: 1.4; }
@@ -4109,6 +4121,9 @@
     .simple-identify-options,
     .support-test-answers { grid-template-columns: 1fr; }
     .people-disagree, .paths-grid, .quiet-framework { grid-template-columns: 1fr; }
+    .tradeoff-context { grid-template-columns: 1fr; }
+    .lesson-progress { gap: 6px; font-size: 9px; letter-spacing: .02em; }
+    .lesson-progress .divider { min-width: 10px; }
     .possible-path { align-items: flex-start; flex-direction: column; }
     .micro-claims { grid-template-columns: 1fr; }
     .logic-puzzle { min-height: 0; }
@@ -4190,7 +4205,7 @@
 <section id="landing" class="landing-screen game-home" aria-labelledby="landingTitle" hidden>
   <div class="landing-shell app-dashboard">
     <header class="app-topbar">
-      <div class="app-logo"><span class="app-logo-mark">S</span>Suppose</div>
+      <div class="app-logo"><span class="app-logo-mark">H</span>Hold That Thought</div>
       <nav class="app-nav" aria-label="App navigation">
         <button class="active" type="button">Learn</button>
         <button type="button">Issues</button>
@@ -4217,7 +4232,7 @@
           <h2 id="issuesHeading">Choose an issue</h2>
           <div class="section-heading-actions">
             <span>Choose where you want to begin</span>
-            <a class="suggest-topic" href="mailto:redstone@illinois.edu?subject=Suppose%20topic%20suggestion&amp;body=Suggested%20topic%3A%0A%0AWhy%20it%20would%20work%20for%20Suppose%3A%0A">Suggest a topic</a>
+            <a class="suggest-topic" href="mailto:redstone@illinois.edu?subject=Hold%20That%20Thought%20topic%20suggestion&amp;body=Suggested%20topic%3A%0A%0AWhy%20it%20would%20work%20for%20Hold%20That%20Thought%3A%0A">Suggest a topic</a>
           </div>
         </div>
         <div class="issue-library">
@@ -4237,7 +4252,7 @@
         </div>
       </section>
 
-      <p class="dashboard-principle"><strong>Instead of judging, suppose.</strong></p>
+      <p class="dashboard-principle"><strong>Before judging, hold that thought.</strong></p>
     </main>
 
     <nav class="app-bottom-nav" aria-label="Mobile navigation"><span>Learn</span><span>Issues</span><span>Progress</span></nav>
@@ -12618,9 +12633,9 @@ function startRepresentationExercise() {
   document.body.appendChild(game);
 
   const pieces = [
-    { label: "Possible causes", text: "The difference between 3% and 14% can have more than one cause.", puzzle: "The difference between 3% and 14% can have more than one cause" },
-    { label: "What the numbers show", text: "The percentages alone do not prove that discrimination or structural barriers caused the difference.", puzzle: "The percentages alone do not prove discrimination or structural barriers" },
-    { label: "Expected effect", text: "Required anti-racism training might not address whatever is causing the difference.", puzzle: "Required anti-racism training might not address the cause of the difference" }
+    { label: "What the numbers mean", text: "He doesn’t think the numbers tell us why the difference exists.", puzzle: "He doesn’t think the numbers tell us why the difference exists" },
+    { label: "Would it help?", text: "He isn’t convinced the training would help.", puzzle: "He isn’t convinced the training would help" },
+    { label: "Another approach", text: "He thinks the company should address the problem in a different way.", puzzle: "He thinks the company should address the problem in a different way" }
   ];
   let selected = [];
   let initialAnswer = null;
@@ -12648,7 +12663,7 @@ function startRepresentationExercise() {
   function renderOpening() {
     selected = [];
     initialAnswer = null;
-    card.innerHTML = `<div class="simple-game-screen"><div class="issue-game-kicker">Representation · Step 1</div><h2 id="issueGameTitle">One disagreement</h2><div class="reasoning-card"><strong>At their company</strong>3% of employees are black. In the surrounding area, 14% of people are black.</div><div class="people-disagree"><div class="person-position"><strong>Maya</strong>Thinks racism caused the difference and the company should require anti-racism training.</div><div class="person-position"><strong>Daniel</strong>Opposes requiring anti-racism training.</div></div><div class="alex-inference"><small>Maya thinks</small>“If Daniel cared about equal opportunity for black workers, he’d support the training.”</div><h3 class="test-question">Could Daniel care about equal opportunity for black workers and still oppose requiring anti-racism training?</h3><div class="support-test-answers"><button class="issue-game-choice" data-rep-answer="yes" type="button">Yes</button><button class="issue-game-choice" data-rep-answer="no" type="button">No</button><button class="issue-game-choice" data-rep-answer="unsure" type="button">Not sure</button></div></div>`;
+    card.innerHTML = `<div class="simple-game-screen"><div class="issue-game-kicker">Representation · Step 1</div><h2 id="issueGameTitle">One disagreement</h2><div class="reasoning-card">Maya and Daniel work together at a company where 3 percent of the employees are black. In the surrounding area, 14 percent of the people are black.</div><div class="people-disagree"><div class="person-position"><strong>Maya</strong>Thinks the company should require anti-racism training.</div><div class="person-position"><strong>Daniel</strong>Opposes requiring anti-racism training.</div></div><div class="alex-inference"><small>Maya thinks</small>“If Daniel cared about fighting racism, he’d support the training.”</div><h3 class="test-question">Could Daniel care about racism and still oppose requiring anti-racism training?</h3><div class="support-test-answers"><button class="issue-game-choice" data-rep-answer="yes" type="button">Yes</button><button class="issue-game-choice" data-rep-answer="no" type="button">No</button><button class="issue-game-choice" data-rep-answer="unsure" type="button">Not sure</button></div></div>`;
     card.querySelectorAll("[data-rep-answer]").forEach(button => button.addEventListener("click", () => {
       initialAnswer = button.dataset.repAnswer;
       renderPieceChoice();
@@ -12657,7 +12672,7 @@ function startRepresentationExercise() {
 
   function renderPieceChoice() {
     const remaining = pieces.map((piece, index) => ({ piece, index })).filter(item => !selected.includes(item.index));
-    card.innerHTML = `<div class="simple-game-screen"><div class="issue-game-kicker">Representation · Build a path</div><h2 id="issueGameTitle">Let’s think about what Daniel’s reasoning might look like.</h2><p>Choose ${selected.length ? "another piece" : "one"}.</p>${selected.length ? puzzleMarkup() : ""}<div class="micro-explanations">${remaining.map(({ piece, index }) => `<button class="micro-explanation" data-rep-piece="${index}" type="button"><span class="micro-path-label">${piece.label}</span>${piece.text}</button>`).join("")}</div><button class="issue-game-next tertiary rep-start-over" type="button">Start this issue over</button></div>`;
+    card.innerHTML = `<div class="simple-game-screen"><div class="issue-game-kicker">Representation · Build a path</div><h2 id="issueGameTitle">What might Daniel’s reasoning look like?</h2><p>Choose ${selected.length ? "another piece" : "one"}.</p>${selected.length ? puzzleMarkup() : ""}<div class="micro-explanations">${remaining.map(({ piece, index }) => `<button class="micro-explanation" data-rep-piece="${index}" type="button"><span class="micro-path-label">${piece.label}</span>${piece.text}</button>`).join("")}</div><button class="issue-game-next tertiary rep-start-over" type="button">Start this issue over</button></div>`;
     card.querySelectorAll("[data-rep-piece]").forEach(button => button.addEventListener("click", () => {
       selected.push(Number(button.dataset.repPiece));
       renderAssess();
@@ -12863,9 +12878,9 @@ function startPiecesGunsExercise() {
     { label: "Alternative means", text: "Jordan thinks better enforcement of existing laws would prevent more gun deaths than adding new restrictions.", chain: "Better enforcement of existing laws would prevent more gun deaths than adding new restrictions", puzzle: "Better enforcement prevents more deaths", kind: "benefit", weight: "Prevent gun deaths through better enforcement" }
   ];
   const stepTwoGoals = [
-    { id: "selfDefense", label: "Preserve lawful self-defense", detail: "Keep people able to use guns to defend themselves." },
-    { id: "lawfulBurdens", label: "Avoid burdens on people who follow the law", detail: "Avoid making lawful ownership substantially harder." },
-    { id: "individualFreedom", label: "Protect individual freedom", detail: "Limit government interference with lawful choices." }
+    { id: "selfDefense", label: "Preserve lawful self-defense", shortLabel: "Self-defense", detail: "Keep people able to use guns to defend themselves." },
+    { id: "lawfulBurdens", label: "Avoid burdens on people who follow the law", shortLabel: "Lawful ownership", detail: "Avoid making lawful ownership substantially harder." },
+    { id: "secondAmendment", label: "Protect Second Amendment rights", shortLabel: "Second Amendment rights", detail: "Avoid policies that conflict with the constitutional right to own guns." }
   ];
   let initialAnswer = null;
   let selected = [];
@@ -12877,6 +12892,8 @@ function startPiecesGunsExercise() {
   let stepTwoGoalIds = [];
   let stepTwoAllocations = {};
   let stepTwoAwarded = false;
+  let stepTwoBalance = null;
+  let stepThreeAwarded = false;
   let deathWeight = 0;
   let otherWeight = 0;
   const totalTokens = 6;
@@ -12891,6 +12908,8 @@ function startPiecesGunsExercise() {
     stepTwoGoalIds = [];
     stepTwoAllocations = {};
     stepTwoAwarded = false;
+    stepTwoBalance = null;
+    stepThreeAwarded = false;
     deathWeight = 0;
     otherWeight = 0;
     renderOpening();
@@ -12900,8 +12919,13 @@ function startPiecesGunsExercise() {
     return `<h2 id="issueGameTitle">One disagreement</h2><div class="people-disagree"><div class="person-position"><strong>Alex</strong>Supports stricter gun laws.</div><div class="person-position"><strong>Jordan</strong>Opposes stricter gun laws.</div></div><div class="alex-inference"><small>Alex thinks</small>“If Jordan cared about preventing gun deaths, he’d support stricter gun laws.”</div>`;
   }
 
+  function lessonProgressMarkup(currentStep) {
+    const step = (number, label) => `<span class="${number < currentStep ? "done" : number === currentStep ? "current" : ""}">${number < currentStep ? "✓ " : ""}Step ${number} · ${label}</span>`;
+    return `<div class="lesson-progress">${step(1, "Explore beliefs")}<span class="divider"></span>${step(2, "Weigh the goals")}<span class="divider"></span>${step(3, "Stay curious")}</div>`;
+  }
+
   function renderOpening() {
-    card.innerHTML = `<div class="simple-game-screen">${openingContext()}<h3 class="test-question">Could Jordan care about preventing gun deaths and still oppose stricter gun laws?</h3><div class="support-test-answers"><button class="issue-game-choice" data-initial="yes" type="button">Yes</button><button class="issue-game-choice" data-initial="no" type="button">No</button><button class="issue-game-choice" data-initial="unsure" type="button">Not sure</button></div></div>`;
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(1)}${openingContext()}<h3 class="test-question">Could Jordan care about preventing gun deaths and still oppose stricter gun laws?</h3><div class="support-test-answers"><button class="issue-game-choice" data-initial="yes" type="button">Yes</button><button class="issue-game-choice" data-initial="no" type="button">No</button><button class="issue-game-choice" data-initial="unsure" type="button">Not sure</button></div></div>`;
     card.querySelectorAll("[data-initial]").forEach(button => button.addEventListener("click", () => {
       initialAnswer = button.dataset.initial;
       noBranch = initialAnswer === "no";
@@ -12985,7 +13009,7 @@ function startPiecesGunsExercise() {
     const instruction = first ? "Choose one." : "Choose another piece to add to the reasoning.";
     const saidText = first ? initialAnswer === "yes" ? "Yes" : initialAnswer === "no" ? "No" : "Not sure" : assessment === "notyet" ? "Not yet" : assessment === "yes" ? "Yes" : "Not sure";
     const unsureLead = noBranch && !first && assessment === "unsure" ? `<p>Let’s add another piece and see.</p>` : "";
-    card.innerHTML = `<div class="simple-game-screen">${playerAnswerMarkup(saidText)}${unsureLead}<h2 id="issueGameTitle">${title}</h2><p>${instruction}</p>${selected.length ? scrollingPuzzleMarkup({ openSlot: remaining.length > 0 }) : ""}<div class="micro-explanations">${remaining.map(({ piece, index }) => `<button class="micro-explanation" data-piece="${index}" type="button"><span class="micro-path-label">${piece.label}</span>${piece.text}</button>`).join("")}</div>${!remaining.length ? `<p>No additional pieces remain in this short prototype.</p><button class="issue-game-next show-considered" type="button">Continue</button>` : ""}<button class="issue-game-next tertiary pieces-back" type="button">Back to the beginning</button></div>`;
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(1)}${playerAnswerMarkup(saidText)}${unsureLead}<h2 id="issueGameTitle">${title}</h2><p>${instruction}</p>${selected.length ? scrollingPuzzleMarkup({ openSlot: remaining.length > 0 }) : ""}<div class="micro-explanations">${remaining.map(({ piece, index }) => `<button class="micro-explanation" data-piece="${index}" type="button"><span class="micro-path-label">${piece.label}</span>${piece.text}</button>`).join("")}</div>${!remaining.length ? `<p>No additional pieces remain in this short prototype.</p><button class="issue-game-next show-considered" type="button">Continue</button>` : ""}<button class="issue-game-next tertiary pieces-back" type="button">Back to the beginning</button></div>`;
     card.querySelectorAll("[data-piece]").forEach(button => button.addEventListener("click", () => {
       selected.push(Number(button.dataset.piece));
       assessment = null;
@@ -13013,7 +13037,7 @@ function startPiecesGunsExercise() {
   }
 
   function renderAssess() {
-    card.innerHTML = `<div class="simple-game-screen"><div class="issue-game-kicker">Piece added</div>${scrollingPuzzleMarkup()}<h2 class="test-question" id="issueGameTitle">Is that enough to explain Jordan’s position?</h2><div class="support-test-answers"><button class="issue-game-choice ${assessment === "yes" ? "active" : ""}" data-assess="yes" type="button">Yes</button><button class="issue-game-choice ${assessment === "notyet" ? "active" : ""}" data-assess="notyet" type="button">Not yet</button><button class="issue-game-choice ${assessment === "unsure" ? "active" : ""}" data-assess="unsure" type="button">Not sure</button></div><div class="assessment-response"></div><button class="issue-game-next tertiary assess-back" type="button">Back to the beginning</button></div>`;
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(1)}<div class="issue-game-kicker">Piece added</div>${scrollingPuzzleMarkup()}<h2 class="test-question" id="issueGameTitle">Is that enough to explain Jordan’s position?</h2><div class="support-test-answers"><button class="issue-game-choice ${assessment === "yes" ? "active" : ""}" data-assess="yes" type="button">Yes</button><button class="issue-game-choice ${assessment === "notyet" ? "active" : ""}" data-assess="notyet" type="button">Not yet</button><button class="issue-game-choice ${assessment === "unsure" ? "active" : ""}" data-assess="unsure" type="button">Not sure</button></div><div class="assessment-response"></div><button class="issue-game-next tertiary assess-back" type="button">Back to the beginning</button></div>`;
     card.querySelectorAll("[data-assess]").forEach(button => button.addEventListener("click", () => {
       assessment = button.dataset.assess;
       card.querySelectorAll("[data-assess]").forEach(option => option.classList.toggle("active", option === button));
@@ -13035,34 +13059,21 @@ function startPiecesGunsExercise() {
   }
 
   function renderPuzzleComplete() {
-    if (!pathAwarded) {
-      pathPoints += 10;
-      pathAwarded = true;
-    }
-    card.innerHTML = `<div class="simple-game-screen"><div class="issue-game-kicker">Step 1 complete</div><h2 id="issueGameTitle">One possible path</h2>${scrollingPuzzleMarkup({ complete: true })}<div class="path-points-award" role="status"><strong>+10</strong><span>Path Points</span><small>Total: ${pathPoints}</small></div><p>The same position can follow from this combination of concerns and beliefs.</p><button class="issue-game-next next-stage" type="button">Continue to Step 2</button><button class="issue-game-next tertiary try-another" type="button">Start over</button></div>`;
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(1)}<div class="issue-game-kicker">Step 1 complete</div><h2 id="issueGameTitle">One possible path</h2>${scrollingPuzzleMarkup({ complete: true })}<p>This is one possible explanation for Jordan’s position—not necessarily his actual reasoning.</p><button class="issue-game-next next-stage" type="button">Continue to Step 2</button><button class="issue-game-next tertiary try-another" type="button">Explore another path</button></div>`;
     card.querySelector(".next-stage").addEventListener("click", () => {
-      stepTwoGoalIds = [];
-      if (selected.includes(1)) stepTwoGoalIds.push("selfDefense");
-      if (selected.includes(2)) stepTwoGoalIds.push("lawfulBurdens");
-      stepTwoAllocations = { preventDeaths: 0 };
-      stepTwoGoalIds.forEach(id => { stepTwoAllocations[id] = 0; });
+      stepTwoGoalIds = selected.includes(1) ? ["selfDefense"] : selected.includes(2) ? ["lawfulBurdens"] : [];
+      stepTwoBalance = null;
       renderStepTwoChoice();
     });
     card.querySelector(".try-another").addEventListener("click", returnToBeginning);
   }
 
-  function stepProgressMarkup() {
-    return `<div class="lesson-progress"><span class="done">✓ Step 1 · Build a path</span><span class="divider"></span><span class="current">Step 2 · Weigh the tradeoff</span></div>`;
-  }
-
   function renderStepTwoChoice() {
-    card.innerHTML = `<div class="simple-game-screen">${stepProgressMarkup()}<h2 class="test-question" id="issueGameTitle">Which goals might Jordan weigh alongside preventing gun deaths?</h2><p class="stage-two-note">Choose one or more. These are possible priorities in Jordan’s reasoning, not necessarily your own.</p><div class="micro-explanations">${stepTwoGoals.map(goal => `<button class="micro-explanation ${stepTwoGoalIds.includes(goal.id) ? "active" : ""}" data-stage-goal="${goal.id}" type="button"><span class="micro-path-label">${goal.label}</span>${goal.detail}</button>`).join("")}</div><button class="issue-game-next stage-goals-next" type="button" ${stepTwoGoalIds.length ? "" : "disabled"}>Continue</button><button class="issue-game-next tertiary stage-two-home" type="button">Back to the beginning</button></div>`;
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(2)}<h2 class="test-question" id="issueGameTitle">What else might matter to Jordan?</h2><p class="stage-two-note">Choose one concern to weigh against preventing gun deaths.</p><div class="micro-explanations">${stepTwoGoals.map(goal => `<button class="micro-explanation ${stepTwoGoalIds.includes(goal.id) ? "active" : ""}" data-stage-goal="${goal.id}" type="button"><span class="micro-path-label">${goal.label}</span>${goal.detail}</button>`).join("")}</div><button class="issue-game-next stage-goals-next" type="button" ${stepTwoGoalIds.length ? "" : "disabled"}>Weigh these concerns</button><button class="issue-game-next tertiary stage-two-home" type="button">Back to the beginning</button></div>`;
     card.querySelectorAll("[data-stage-goal]").forEach(button => button.addEventListener("click", () => {
       const id = button.dataset.stageGoal;
-      if (stepTwoGoalIds.includes(id)) stepTwoGoalIds = stepTwoGoalIds.filter(goalId => goalId !== id);
-      else stepTwoGoalIds.push(id);
-      stepTwoAllocations = { preventDeaths: 0 };
-      stepTwoGoalIds.forEach(goalId => { stepTwoAllocations[goalId] = 0; });
+      stepTwoGoalIds = stepTwoGoalIds.includes(id) ? [] : [id];
+      stepTwoBalance = null;
       renderStepTwoChoice();
     }));
     card.querySelector(".stage-goals-next").addEventListener("click", renderStepTwoWeights);
@@ -13070,19 +13081,11 @@ function startPiecesGunsExercise() {
   }
 
   function renderStepTwoWeights() {
-    const used = Object.values(stepTwoAllocations).reduce((sum, value) => sum + value, 0);
-    const left = totalTokens - used;
-    const controls = (target, value) => `<div class="weight-controls"><button data-stage-weight="${target}" data-change="-1" type="button">−</button><output>${value}</output><button data-stage-weight="${target}" data-change="1" type="button">+</button></div>`;
-    const goalRows = stepTwoGoalIds.map(id => {
-      const goal = stepTwoGoals.find(item => item.id === id);
-      return `<div class="weight-row"><span>${goal.label}</span>${controls(id, stepTwoAllocations[id] || 0)}</div>`;
-    }).join("");
-    card.innerHTML = `<div class="simple-game-screen">${stepProgressMarkup()}<h2 class="test-question" id="issueGameTitle">How might Jordan weigh these goals?</h2><p class="stage-two-note">Distribute all six points to show how much influence each goal might have on Jordan’s decision.</p><div class="weight-panel"><div class="weight-row"><span>Prevent gun deaths</span>${controls("preventDeaths", stepTwoAllocations.preventDeaths || 0)}</div>${goalRows}<p class="tokens-left">${left} points left</p></div>${left === 0 ? `<button class="issue-game-next test-stage-weights" type="button">Test these weights</button>` : ""}<button class="issue-game-next tertiary stage-goals-back" type="button">Choose different goals</button><button class="issue-game-next tertiary stage-two-home" type="button">Back to the beginning</button></div>`;
-    card.querySelectorAll("[data-stage-weight]").forEach(button => button.addEventListener("click", () => {
-      const change = Number(button.dataset.change);
-      const target = button.dataset.stageWeight;
-      stepTwoAllocations[target] = Math.max(0, (stepTwoAllocations[target] || 0) + change);
-      if (Object.values(stepTwoAllocations).reduce((sum, value) => sum + value, 0) > totalTokens) stepTwoAllocations[target]--;
+    const goal = stepTwoGoals.find(item => item.id === stepTwoGoalIds[0]);
+    const balanceLabels = ["Much more weight to preventing deaths", "Somewhat more weight to preventing deaths", "About equal", `Somewhat more weight to ${goal.shortLabel.toLowerCase()}`, `Much more weight to ${goal.shortLabel.toLowerCase()}`];
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(2)}<h2 class="test-question" id="issueGameTitle">How might Jordan weigh these concerns?</h2><div class="tradeoff-context"><div><strong>One concern</strong>Prevent gun deaths</div><div><strong>Another concern</strong>${goal.label}</div></div><p class="stage-two-note">Giving one concern more weight in this decision does not mean the other concern does not matter.</p><div class="tradeoff-balance"><div class="tradeoff-labels"><span>Prevent gun deaths</span><span>${goal.shortLabel}</span></div><div class="balance-options">${balanceLabels.map((label, index) => `<button class="balance-option ${stepTwoBalance === index - 2 ? "active" : ""}" data-balance="${index - 2}" type="button" aria-label="${label}" title="${label}">●</button>`).join("")}</div><p class="balance-caption">${stepTwoBalance === null ? "Choose a possible balance." : balanceLabels[stepTwoBalance + 2]}</p></div>${stepTwoBalance === null ? "" : `<button class="issue-game-next test-stage-weights" type="button">Continue</button>`}<button class="issue-game-next tertiary stage-goals-back" type="button">Choose a different concern</button><button class="issue-game-next tertiary stage-two-home" type="button">Back to the beginning</button></div>`;
+    card.querySelectorAll("[data-balance]").forEach(button => button.addEventListener("click", () => {
+      stepTwoBalance = Number(button.dataset.balance);
       renderStepTwoWeights();
     }));
     card.querySelector(".test-stage-weights")?.addEventListener("click", renderStepTwoResult);
@@ -13091,24 +13094,39 @@ function startPiecesGunsExercise() {
   }
 
   function renderStepTwoResult() {
-    const deathPoints = stepTwoAllocations.preventDeaths || 0;
-    const competingPoints = stepTwoGoalIds.reduce((sum, id) => sum + (stepTwoAllocations[id] || 0), 0);
-    const supportsPosition = competingPoints > deathPoints;
-    if (supportsPosition && !stepTwoAwarded) {
-      pathPoints += 10;
-      stepTwoAwarded = true;
-    }
-    const weightText = supportsPosition ? "Gives more combined weight to competing goals" : "Gives at least as much weight to preventing gun deaths";
-    card.innerHTML = `<div class="simple-game-screen">${stepProgressMarkup()}<h2 id="issueGameTitle">${supportsPosition ? "These weights make the path fit." : "These weights point in another direction."}</h2>${scrollingPuzzleMarkup({ complete: supportsPosition, weightText })}<div class="stage-result"><strong>${supportsPosition ? "This priority pattern supports Jordan’s position." : "This priority pattern does not yet support Jordan’s position."}</strong>Preventing gun deaths: ${deathPoints} points. Other selected goals together: ${competingPoints} points.</div>${supportsPosition ? `<div class="path-points-award" role="status"><strong>+10</strong><span>Path Points</span><small>Total: ${pathPoints}</small></div><button class="issue-game-next finish-lesson" type="button">Continue</button>` : `<button class="issue-game-next adjust-weights" type="button">Adjust the weights</button>`}<button class="issue-game-next tertiary stage-goals-back" type="button">Choose different goals</button><button class="issue-game-next tertiary stage-two-home" type="button">Back to the beginning</button></div>`;
+    const goal = stepTwoGoals.find(item => item.id === stepTwoGoalIds[0]);
+    const leansToOtherGoal = stepTwoBalance > 0;
+    const isEqual = stepTwoBalance === 0;
+    const weightText = leansToOtherGoal ? `Gives ${goal.shortLabel.toLowerCase()} more weight in this decision` : isEqual ? "Gives both concerns about the same weight" : "Gives preventing gun deaths more weight in this decision";
+    const heading = leansToOtherGoal ? "This is one possible tradeoff." : isEqual ? "This leaves the decision unsettled." : "This balance points toward stricter laws.";
+    const explanation = leansToOtherGoal ? `Jordan could care about preventing gun deaths while giving ${goal.shortLabel.toLowerCase()} more weight in this decision.` : isEqual ? "If both concerns carry similar weight, we would need to know more before explaining Jordan’s opposition." : "This particular balance would not explain Jordan’s opposition by itself—but it still does not tell us what Jordan cares about.";
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(2)}<h2 id="issueGameTitle">${heading}</h2>${scrollingPuzzleMarkup({ complete: leansToOtherGoal, weightText })}<div class="stage-result"><strong>${explanation}</strong>Giving one concern more weight does not erase the other.</div><button class="issue-game-next finish-lesson" type="button">Continue to Step 3</button><button class="issue-game-next tertiary adjust-weights" type="button">Adjust the balance</button><button class="issue-game-next tertiary stage-goals-back" type="button">Choose a different concern</button><button class="issue-game-next tertiary stage-two-home" type="button">Back to the beginning</button></div>`;
     card.querySelector(".adjust-weights")?.addEventListener("click", renderStepTwoWeights);
-    card.querySelector(".finish-lesson")?.addEventListener("click", renderLessonComplete);
+    card.querySelector(".finish-lesson")?.addEventListener("click", renderStepThree);
     card.querySelector(".stage-goals-back").addEventListener("click", renderStepTwoChoice);
     card.querySelector(".stage-two-home").addEventListener("click", returnToBeginning);
   }
 
+  function renderStepThree() {
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(3)}<h2 id="issueGameTitle">Hold that thought.</h2><div class="alex-inference"><small>Alex thinks</small>“If Jordan cared about preventing gun deaths, he’d support stricter gun laws.”</div><div class="stage-result"><strong>Jordan’s position alone does not tell us what he cares about.</strong>The path you built is one possible explanation, not a claim about his actual reasons.</div><h3 class="test-question">What might you want to understand next?</h3><div class="micro-explanations"><button class="micro-explanation" data-reconsider="effects" type="button">What does Jordan think stricter laws would accomplish?</button><button class="micro-explanation" data-reconsider="concerns" type="button">What other consequences is Jordan concerned about?</button><button class="micro-explanation" data-reconsider="evidence" type="button">What evidence might change Jordan’s mind?</button></div><button class="issue-game-next tertiary stage-three-home" type="button">Back to the beginning</button></div>`;
+    card.querySelectorAll("[data-reconsider]").forEach(button => button.addEventListener("click", () => renderStepThreeResult(button.dataset.reconsider)));
+    card.querySelector(".stage-three-home").addEventListener("click", returnToBeginning);
+  }
+
+  function renderStepThreeResult(answer) {
+    const response = answer === "effects"
+      ? "That question explores Jordan’s beliefs about what the policy would do."
+      : answer === "concerns"
+        ? "That question explores the tradeoffs Jordan may see."
+        : "That question opens a conversation instead of assuming an answer.";
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(3)}<h2 id="issueGameTitle">Curiosity leaves room to find out.</h2><div class="stage-result"><strong>${response}</strong>You do not have to decide what Jordan cares about from his position alone.</div><button class="issue-game-next complete-lesson" type="button">Complete the exercise</button></div>`;
+    card.querySelector(".complete-lesson").addEventListener("click", renderLessonComplete);
+  }
+
   function renderLessonComplete() {
-    card.innerHTML = `<div class="simple-game-screen"><div class="issue-game-kicker">Lesson complete</div><h2 id="issueGameTitle">Two steps completed</h2><div class="stage-result"><strong>✓ Build a possible path</strong>✓ Weigh a tradeoff within that path</div><div class="path-points-award"><strong>${pathPoints}</strong><span>Total Path Points</span></div><button class="issue-game-next lesson-restart" type="button">Practice again</button></div>`;
+    card.innerHTML = `<div class="simple-game-screen">${lessonProgressMarkup(4)}<div class="issue-game-kicker">Exercise complete</div><h2 id="issueGameTitle">You held the conclusion open.</h2><div class="stage-result"><strong>One possible path—not the explanation.</strong>You explored what Jordan might believe, how two concerns could compete, and why his position alone does not reveal what he cares about.</div><button class="issue-game-next lesson-restart" type="button">Explore another path</button><button class="issue-game-next tertiary choose-another-issue" type="button">Choose another issue</button></div>`;
     card.querySelector(".lesson-restart").addEventListener("click", returnToBeginning);
+    card.querySelector(".choose-another-issue").addEventListener("click", () => returnToSupposeHome(game));
   }
 
   function renderStressTest() {
