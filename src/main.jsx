@@ -165,7 +165,7 @@ function App() {
           </div>
           <figure className="hero-portrait">
             <img src={assetUrl('ilana-redstone.jpg')} alt="Ilana Redstone" />
-            <figcaption>Ilana Redstone, 2024</figcaption>
+            <figcaption>Ilana Redstone, 2026</figcaption>
           </figure>
         </section>
 
