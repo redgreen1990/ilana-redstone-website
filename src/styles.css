@@ -56,7 +56,7 @@ img { max-width: 100%; }
 .profile-links a:hover, .profile-links a:focus-visible { color: var(--ink); }
 .profile-links a:hover svg, .profile-links a:focus-visible svg { transform: translate(2px, -2px); }
 .profile-label, .profile-short-label { display: none; }
-.hero-portrait { margin: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; }
+.hero-portrait { margin: 0; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; transform: translateY(-32px); }
 .hero-portrait img { width: 100%; aspect-ratio: 4/5; display: block; object-fit: cover; }
 .hero-portrait figcaption { max-width: 360px; margin-top: 16px; color: var(--muted); font-size: 11px; line-height: 16px; }
 
@@ -183,7 +183,7 @@ footer p:last-child { text-align: right; color: #9da39e; }
   .profile-links a + a { border-left: 1px solid var(--line); }
   .profile-long-label { display: none; }
   .profile-short-label { display: inline; }
-  .hero-portrait { width: 100%; margin: 0; }
+  .hero-portrait { width: 100%; margin: 0; transform: none; }
   .hero-portrait img { aspect-ratio: 5/6; object-position: center 25%; }
   .hero-portrait figcaption { margin-top: 10px; }
   .ideas-content, .books-heading { padding: 64px 0 72px; grid-template-columns: 1fr; gap: 48px; }
