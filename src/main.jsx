@@ -9,7 +9,6 @@ const navItems = [
   ['About', '#about'],
   ['Central idea', '#ideas'],
   ['Books', '#books'],
-  ['Book preview', '#preview'],
 ]
 
 function Header() {
@@ -86,7 +85,7 @@ const cascadeGroups = [
   ]],
 ]
 
-// Retained for possible future use; the live page now renders PremiseMapCallout.
+// Retained for possible future use; the book preview is not currently displayed.
 function Cascade() {
   return (
     <section className="cascade-section" id="preview" aria-labelledby="cascade-heading">
@@ -116,25 +115,6 @@ function Cascade() {
             <footer className="cascade-note"><p>The quotations in the entries above are representative formulations only.</p><p>Drawn from <a href="#books"><em>Presumption of Guilt</em></a> (Pitchstone, 2027), Chapter 9.</p></footer>
           </div>
         </details>
-      </div>
-    </section>
-  )
-}
-
-function PremiseMapCallout() {
-  return (
-    <section className="map-callout" id="preview" aria-labelledby="map-callout-heading">
-      <div className="map-callout-shell">
-        <div>
-          <p className="eyebrow">Interactive companion · <em>Presumption of Guilt</em></p>
-          <h2 id="map-callout-heading">See how apparently unrelated controversies share a common premise.</h2>
-        </div>
-        <div className="map-callout-action">
-          <p>Choose an issue and trace the hidden reasoning that connects it to the book’s central argument.</p>
-          <a className="button" href={assetUrl('contested-premise-map/')}>
-            Explore the interactive map <ArrowRight aria-hidden="true" size={16} />
-          </a>
-        </div>
       </div>
     </section>
   )
@@ -213,8 +193,6 @@ function App() {
             <Book index="02" date="Published · September 2024" title="The Certainty Trap" cover={assetUrl('the-certainty-trap.webp')} tone="burgundy" subtitle="Why We Need to Question Ourselves More—and How We Can Judge Others Less" href="https://www.amazon.com/Certainty-Trap-Question-Ourselves-More/dp/1634310292/ref=tmm_pap_swatch_0" />
           </div>
         </section>
-
-        <PremiseMapCallout />
 
         <section className="contact" aria-labelledby="contact-heading">
           <p className="eyebrow">Speaking · Media · Academic inquiries</p>
